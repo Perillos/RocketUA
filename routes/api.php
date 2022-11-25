@@ -89,23 +89,15 @@ Route::group(['prefix' => 'models'], function() {
 
   Route::get('model/{id}/comment', [UserController::class, 'getComment']);
 
-  Route::post('model/{id}/comment', function ($id) {
-    return "Creación de comentarios $id";
-  });
+  Route::post('model/{id}/comment', [UserController::class, 'postComment']);
 });
 
 /* GESTIÓN DEL MENÚ */
+Route::group(['prefix' => 'menu'], function() {
 
-Route::get('menu', function () {
-  return 'Recuperar menús';
+  Route::get('menu', [UserController::class, 'getMenus']);
+
+  Route::get('menu/{id}', [UserController::class, 'getMenu']);
 });
 
-Route::get('menu/{id}', function ($id) {
-  Log::info('Pureba de log');
-  return "Recuperar un menú $id";
-});
-
-// Route::get('menu/{id?}', function ($id = null) {
-//   return "Recuperar menú $id";
-// });
 

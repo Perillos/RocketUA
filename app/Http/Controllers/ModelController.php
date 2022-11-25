@@ -12,4 +12,7 @@ class ModelController extends Controller
   public function getComment($id) {
     return "Lista de comentarios del modelo $id";
   }
+  public function postComment($id) {
+    return "Creación de comentarios $id";
+  }
 }
